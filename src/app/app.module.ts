@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RecipesComponent } from './recipe/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.component';
 import { GeneratorComponent } from './generator/generator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GeneratorComponent } from './generator/generator.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
