@@ -10,4 +10,10 @@ export class ShoppingCartComponent {
 
   constructor(private http: HttpClient) {}
 
+  getShoppingListItems() {
+    this.http.get('http://localhost:9095/api/cart/1/ingredients/')
+    .subscribe((response) => {
+      console.log(response)
+    })
+  }
 }
