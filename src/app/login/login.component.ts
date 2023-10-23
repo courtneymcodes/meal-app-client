@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+   credentials = {
+    emailAddress: "",
+    password: ""
+  }
 
+  onSubmit(){
+    console.log("Form data: ", this.credentials)
+  }
 }
