@@ -3,14 +3,20 @@
 <h2>Create an account</h2>
 
 <form>
-    <label for="name">Name</label>
-    <input type="text" name="name">
+    <div>
+        <label for="name">Name</label>
+        <input [(ngModel)]="name" type="text" name="name">
+    </div>
 
-    <label for="emailAddress">Email</label>
-    <input type="text" name="emailAddress">
-
-    <label for="password">Password</label>
-    <input type="text" name="password">
-
+    <div>
+        <label for="emailAddress">Email</label>
+        <input [(ngModel)]="emailAddress" type="text" name="emailAddress">
+    </div>
+    
+    <div>
+        <label for="password">Password</label>
+        <input [(ngModel)]="password" type="text" name="password">
+    </div>
+   
     <input type="submit" value="submit">
 </form>
