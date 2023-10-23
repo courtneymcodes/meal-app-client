@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent {
+
+  constructor(private http: HttpClient) {}
 
 }
