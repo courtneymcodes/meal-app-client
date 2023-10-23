@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class RegisterComponent {
 
   name: string = ''
-  email: string = '';
+  emailAddress: string = '';
   password: string = '';
 
+  onSubmit() {
+    console.log("Form data: ", this.name, this.emailAddress, this.password)
+  }
 }

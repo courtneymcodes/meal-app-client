@@ -2,7 +2,7 @@
 
 <h2>Create an account</h2>
 
-<form>
+<form (ngSubmit)="onSubmit()">  <!-- listens for submit event and runs onSubmit method when form submitted -->
     <div>
         <label for="name">Name</label>
         <input [(ngModel)]="name" type="text" name="name">
