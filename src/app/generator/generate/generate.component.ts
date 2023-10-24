@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { GeneratorService } from '../services/generator.service';
+import { GeneratorService } from 'src/app/services/generator.service';
 
 @Component({
-  selector: 'app-generator',
-  templateUrl: './generator.component.html',
-  styleUrls: ['./generator.component.scss']
+  selector: 'app-generate',
+  templateUrl: './generate.component.html',
+  styleUrls: ['./generate.component.scss']
 })
-export class GeneratorComponent {
+export class GenerateComponent {
   data: any
   ingredientsNameList: string[] = []
   ingredientsImageList: string[] =[]

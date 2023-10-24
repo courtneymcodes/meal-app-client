@@ -7,7 +7,9 @@ import { AccountHomeComponent } from './account-home/account-home.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RecipesComponent } from './recipe/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.component';
-import { GeneratorComponent } from './generator/generator.component';
+
+import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.component';
+import { GenerateComponent } from './generator/generate/generate.component';
 
 
 const routes: Routes = [
@@ -41,7 +43,13 @@ const routes: Routes = [
   },
   {
     path: 'generator',
-    component: GeneratorComponent
+    component: GenerateComponent,
+    children: [
+     {
+      path:'show-random',
+      component: ShowRecipeComponent
+     }
+    ]
   }
 ];
 

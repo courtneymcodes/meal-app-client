@@ -10,12 +10,15 @@ import { AccountHomeComponent } from './account-home/account-home.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { RecipesComponent } from './recipe/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.component';
-import { GeneratorComponent } from './generator/generator.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+
+import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.component';
+import { GenerateComponent } from './generator/generate/generate.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     ShoppingCartComponent,
     RecipesComponent,
     RecipeDetailsComponent,
-    GeneratorComponent
+    ShowRecipeComponent,
+    GenerateComponent
   ],
   imports: [
     BrowserModule,
