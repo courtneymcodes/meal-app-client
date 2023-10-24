@@ -2,10 +2,10 @@
 
 <h2>Your Shopping List</h2>
 
-<input type="text" placeholder="add item to your grocery list">
-<button>add</button>
+<input [(ngModel)]="ingredient.name" type="text" placeholder="add item to your grocery list">
+<button (click)="addIngredient(ingredient)">add</button> <!-- bind input to component property -->
 
-<div>
-    <p>ingredient name</p> 
+<div *ngFor="let item of cart?.data.items">
+    <p>{{item.name}}</p> 
     <img src="/assets/trash-icon.svg">
 </div>

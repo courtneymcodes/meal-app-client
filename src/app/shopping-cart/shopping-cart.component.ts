@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CartService } from '../services/cart.service';
+import { IngredientService } from '../services/ingredient.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,13 +10,19 @@ import { CartService } from '../services/cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   cart: any
-  constructor(private http: HttpClient, private cartService: CartService) {}
+  ingredient = {
+    name: ''
+  }
+  
+  ingredientObject:any
+
+  constructor(private http: HttpClient, private cartService: CartService, private ingredientService: IngredientService) {}
 
   ngOnInit() {
     this.cartService.getUserCart().subscribe((response:any) => {
       console.log(response)
       this.cart = response
-      
+
       //only create a cart if it doesn't exist yet
       if(!this.cart){  
         this.cartService.createCart().subscribe((response:any) => {
@@ -26,8 +33,12 @@ export class ShoppingCartComponent implements OnInit {
    
   }
 
-
-  
+  addIngredient(ingredient:any){
+    console.log(ingredient)
+    this.ingredientService.addIngredient(ingredient).subscribe((response:any) => {
+      console.log(response)
+    })
+  }
 
   }
 
