@@ -2,7 +2,7 @@
 
 <h2>Add a new recipe</h2>
 
-<form (ngSubmit)="onSubmit()">  <!-- listens for submit event and runs onSubmit method when form submitted -->
+<form (ngSubmit)="createRecipe(recipe)">  <!-- listens for submit event and runs onSubmit method when form submitted -->
     <div>
         <label for="name">Recipe name</label>
         <input [(ngModel)]="recipe.name" type="text" name="name">
@@ -14,13 +14,13 @@
     </div>
     
     <div>
-        <label for="image">Image Url</label>
-        <input [(ngModel)]="recipe.image" type="text" name="image">
+        <label for="imageUrl">Image Url</label>
+        <input [(ngModel)]="recipe.imageUrl" type="text" name="imageUrl">
     </div>
 
     <div>
-        <label for="source">Recipe source link</label>
-        <input [(ngModel)]="recipe.source" type="text" name="source">
+        <label for="sourceUrl">Recipe source link</label>
+        <input [(ngModel)]="recipe.sourceUrl" type="text" name="sourceUrl">
     </div>
    
     <input type="submit" value="submit">
