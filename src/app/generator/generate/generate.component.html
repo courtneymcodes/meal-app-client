@@ -1,3 +1,9 @@
 <p>generate works!</p>
 
-<app-show-recipe></app-show-recipe>
+<p>Need some inspirations? Click generate to discover a new recipe</p>
+<button (click)="getRandomRecipe()">Generate</button>
+
+<app-show-recipe *ngIf="showRecipe"
+[recipeImage]="recipeImage"
+[recipeName]="recipeName"
+[ingredientsNameList]="ingredientsNameList"></app-show-recipe>

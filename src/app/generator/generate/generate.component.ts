@@ -8,17 +8,19 @@ import { GeneratorService } from 'src/app/services/generator.service';
 })
 export class GenerateComponent {
   data: any
+  recipeImage: string = ''
+  recipeName: string = ''
   ingredientsNameList: string[] = []
   ingredientsImageList: string[] =[]
+  showRecipe: boolean = false;
 
   constructor(private generatorService: GeneratorService) {}
 
   getRandomRecipe() {
     this.generatorService.getRandomRecipe().subscribe((response) =>{
       this.data = response
-      console.log(this.data.recipes[0])
-      console.log(this.data.recipes[0].title)
-      console.log(this.data.recipes[0].extendedIngredients)
+      this.recipeImage = this.data.recipes[0].image
+      this.recipeName = this.data.recipes[0].title
 
       for(let ingredient of this.data.recipes[0].extendedIngredients) {
         this.ingredientsNameList.push(ingredient.name) //create an array of igredient names from response
@@ -26,6 +28,10 @@ export class GenerateComponent {
       } 
       console.log(this.ingredientsNameList)
       console.log(this.ingredientsImageList)
+      console.log(this.recipeImage)
+      console.log(this.recipeName)
+      this.showRecipe = true
+
     })
   }
 }

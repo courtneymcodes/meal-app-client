@@ -1,4 +1,7 @@
 <p>show-recipe works!</p>
 
-<img>
-<p>name</p>
+<div>
+    <img [src]="recipeImage">
+    <p>{{recipeName}}</p>
+    <p *ngFor="let item of ingredientsNameList">{{item}}</p>
+</div>
