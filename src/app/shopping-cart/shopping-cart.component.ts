@@ -8,21 +8,26 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-
+  cart: any
   constructor(private http: HttpClient, private cartService: CartService) {}
 
   ngOnInit() {
-    // this.cartService.createCart()
-    // .subscribe((response:any) => {
-    //   console.log(response)
-    // })
-
-    this.cartService.getUserCart()
-    .subscribe((response:any) => {
+    this.cartService.getUserCart().subscribe((response:any) => {
       console.log(response)
+      this.cart = response
+      
+      //only create a cart if it doesn't exist yet
+      if(!this.cart){  
+        this.cartService.createCart().subscribe((response:any) => {
+          console.log(response)
+        })
+      }
     })
+   
   }
 
+
+  
 
   }
 

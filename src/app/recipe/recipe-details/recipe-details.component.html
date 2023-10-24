@@ -1,1 +1,22 @@
 <p>recipe-details works!</p>
+
+<div>
+    <div>
+        <img [src]="shownRecipe?.data.imageUrl">
+        <p>{{shownRecipe?.data.name}}</p>
+    </div>
+    
+    <div>
+        <p>Ingredients</p>
+        
+        <div><!-- ngFor  -->
+            <p>ingredient name</p>
+        </div>
+    </div>
+   
+    <div>
+        <p>{{shownRecipe?.data.instructions}}</p>
+        <p>{{shownRecipe?.data.source}}</p>
+    </div>
+
+</div>

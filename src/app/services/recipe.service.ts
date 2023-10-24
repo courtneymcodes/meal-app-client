@@ -12,6 +12,10 @@ export class RecipeService {
     return this.http.get('http://localhost:9095/api/recipes/')
   }
 
+  getRecipeById(recipeId:any) {
+    return this.http.get(`http://localhost:9095/api/recipes/${recipeId}/`)
+  }
+
   createRecipe(recipe:any) {
     return this.http.post('http://localhost:9095/api/recipes/', recipe)
   }

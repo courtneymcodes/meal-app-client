@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -8,16 +9,15 @@ import { RecipeService } from 'src/app/services/recipe.service';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  recipeList: any;
+  recipeList: any
 
-  constructor(private http: HttpClient, private recipeService: RecipeService) {}
+  constructor(private http: HttpClient, private recipeService: RecipeService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.recipeService.getAllRecipes()
     .subscribe((response:any) => {
       this.recipeList = response.data
-      console.log(this.recipeList)
-      console.log(response)
+      //console.log(this.recipeList)
     })
   }
 

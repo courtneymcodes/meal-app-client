@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss']
 })
-export class RecipeDetailsComponent {
+export class RecipeDetailsComponent implements OnInit{
+ recipeId: string | null = ''
+ shownRecipe:any
+
+
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService){}
+
+  ngOnInit(){
+    //store the id of the clicked on recipe
+    this.route.paramMap.subscribe(params => {
+      this.recipeId = params.get('id')
+      //console.log(this.recipeId)
+      
+      //find recipe by its id by making a get request via recipeService
+      this.recipeService.getRecipeById(this.recipeId).subscribe((response) => {
+        this.shownRecipe = response
+        console.log(this.shownRecipe)
+      })
+
+    })
+  }
 
 }
