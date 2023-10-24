@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private cartService: CartService) {}
 
-  getShoppingListItems() {
-    this.http.get('http://localhost:9095/api/cart/1/ingredients/', this.authService.createHeadersWithJwtToken())
-    .subscribe((response) => {
+  ngOnInit() {
+    this.cartService.createCart()
+    .subscribe((response:any) => {
       console.log(response)
     })
   }
