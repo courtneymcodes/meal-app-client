@@ -5,11 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  // credentials = {
-  //   emailAddress: "",
-  //   password: ""
-  // }
-
   constructor(private http: HttpClient) { }
 
   getJwt(credentials:any){
