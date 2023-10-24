@@ -18,6 +18,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.component';
 import { GenerateComponent } from './generator/generate/generate.component';
+import { CreateRecipeComponent } from './recipe/create-recipe/create-recipe.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { GenerateComponent } from './generator/generate/generate.component';
     RecipesComponent,
     RecipeDetailsComponent,
     ShowRecipeComponent,
-    GenerateComponent
+    GenerateComponent,
+    CreateRecipeComponent,
   ],
   imports: [
     BrowserModule,

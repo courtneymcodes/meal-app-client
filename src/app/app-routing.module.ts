@@ -10,6 +10,7 @@ import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.c
 
 import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.component';
 import { GenerateComponent } from './generator/generate/generate.component';
+import { CreateRecipeComponent } from './recipe/create-recipe/create-recipe.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'shopping-cart',
     component: ShoppingCartComponent
+  },
+  {
+    path: 'create-recipe',
+    component: CreateRecipeComponent,
   },
   {
     path: 'recipes',
