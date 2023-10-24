@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,7 +10,9 @@ export class AuthService {
     password: ""
   }
 
-  token: any;
+  jwtToken: any;
+
+  headers: any;
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +20,18 @@ export class AuthService {
     this.http
     .post('http://localhost:9095/auth/users/login/', credentials)
     .subscribe((response:any) => {
-      this.token = response  //store token from response
-      console.log(this.token)
-  })
-}
+      this.jwtToken = response  //store token from response
+      console.log(this.jwtToken)
+    })
+  }
+
+  createHeadersWithJwtToken() {
+     this.headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.jwtToken}`,
+      'Content-Type': 'application/json'
+    })
+  }
+
+
 
 }
