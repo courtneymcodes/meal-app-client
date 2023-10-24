@@ -12,7 +12,7 @@ export class ShoppingCartComponent {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getShoppingListItems() {
-    this.http.get('http://localhost:9095/api/cart/1/ingredients/', this.authService.headers)
+    this.http.get('http://localhost:9095/api/cart/1/ingredients/', this.authService.createHeadersWithJwtToken())
     .subscribe((response) => {
       console.log(response)
     })

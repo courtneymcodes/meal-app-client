@@ -15,7 +15,12 @@ export class LoginComponent {
   constructor(private authServive: AuthService) {}
 
   loginUser() {
-    this.authServive.loginRequest(this.credentials)
+    console.log(this.credentials)
+   this.authServive.loginUser(this.credentials)
+   .subscribe((response:any) => {
+    console.log(response.jwt)
+    let token = JSON.stringify(response.jwt)  //convert object to string
+    localStorage.setItem('jwt', token)  //store to local storage
+  })
   }
-
 }

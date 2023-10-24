@@ -10,28 +10,26 @@ export class AuthService {
     password: ""
   }
 
-  jwtToken: any;
-
-  headers: any;
-
   constructor(private http: HttpClient) { }
 
-  loginRequest(credentials:any){
+  getJwt(credentials:any){
     this.http
     .post('http://localhost:9095/auth/users/login/', credentials)
     .subscribe((response:any) => {
-      this.jwtToken = response  //store token from response
-      console.log(this.jwtToken)
+      return response 
     })
   }
 
-  createHeadersWithJwtToken() {
-     this.headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.jwtToken}`,
-      'Content-Type': 'application/json'
-    })
+  // createHeadersWithJwtToken():any {
+  //    let headers = new HttpHeaders({
+  //     'Authorization': `Bearer ${this.getJwt}`,
+  //     'Content-Type': 'application/json'
+  //   })
+  //   return headers
+  // }
+
+  loginUser(credentials:any) {
+    return this.http.post('http://localhost:9095/auth/users/login/', credentials)
   }
-
-
 
 }
