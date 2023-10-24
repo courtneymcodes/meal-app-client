@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class RecipeService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getAllRecipes() {
+    return this.http.get('http://localhost:9095/api/recipes/')
+  }
 }

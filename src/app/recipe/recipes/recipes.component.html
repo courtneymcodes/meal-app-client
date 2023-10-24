@@ -4,7 +4,7 @@
 
 <button routerLink="/create-recipe">Add new recipe</button>
 
-<div>
-    <img src="">
-    <p>recipe name</p>
+<div *ngFor="let recipe of recipeList">
+    <img [src]="recipe.imageUrl">
+    <p>{{recipe.name}}</p>
 </div>

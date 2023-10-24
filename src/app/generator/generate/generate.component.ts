@@ -31,7 +31,6 @@ export class GenerateComponent {
       console.log(this.recipeImage)
       console.log(this.recipeName)
       this.showRecipe = true
-
     })
   }
 }
