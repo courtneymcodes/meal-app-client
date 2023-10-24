@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
     password: ""
   }
 
-  constructor(private authServive: AuthService) {}
+  constructor(private authServive: AuthService, private router: Router) {}
 
   loginUser() {
     console.log(this.credentials)
@@ -23,6 +24,11 @@ export class LoginComponent {
     let token = response.jwt 
     localStorage.setItem('jwt', token)  //store to local storage
     console.log(typeof token)
+
+    //navigate to account home page if login successful
+    if (token != null) {  
+      this.router.navigate(['/account-home'])
+    }
   })
   }
 }
