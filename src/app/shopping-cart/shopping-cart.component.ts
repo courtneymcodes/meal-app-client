@@ -12,10 +12,10 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private http: HttpClient, private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartService.createCart()
-    .subscribe((response:any) => {
-      console.log(response)
-    })
+    // this.cartService.createCart()
+    // .subscribe((response:any) => {
+    //   console.log(response)
+    // })
 
     this.cartService.getUserCart()
     .subscribe((response:any) => {

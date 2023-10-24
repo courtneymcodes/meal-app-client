@@ -19,8 +19,11 @@ export class LoginComponent {
    this.authServive.loginUser(this.credentials)
    .subscribe((response:any) => {
     console.log(response.jwt)
-    let token = JSON.stringify(response.jwt)  //convert object to string
+    console.log(typeof response.jwt)
+    let token = response.jwt 
     localStorage.setItem('jwt', token)  //store to local storage
+    console.log(typeof token)
   })
   }
 }
+
