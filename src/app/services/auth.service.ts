@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  credentials = {
-    emailAddress: "",
-    password: ""
-  }
+  // credentials = {
+  //   emailAddress: "",
+  //   password: ""
+  // }
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +29,11 @@ export class AuthService {
   // }
 
   loginUser(credentials:any) {
+    console.log(credentials)
     return this.http.post('http://localhost:9095/auth/users/login/', credentials)
   }
 
+  registerUser(credentials:any){
+    return this.http.post('http://localhost:9095/auth/users/register/', credentials)
+  }
 }
