@@ -16,5 +16,13 @@ export class ShoppingCartComponent implements OnInit {
     .subscribe((response:any) => {
       console.log(response)
     })
+
+    this.cartService.getUserCart()
+    .subscribe((response:any) => {
+      console.log(response)
+    })
   }
-}
+
+
+  }
+
