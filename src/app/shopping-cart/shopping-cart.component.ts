@@ -13,8 +13,6 @@ export class ShoppingCartComponent implements OnInit {
   ingredient = {
     name: ''
   }
-  
-  ingredientObject:any
 
   constructor(private http: HttpClient, private cartService: CartService, private ingredientService: IngredientService) {}
 
