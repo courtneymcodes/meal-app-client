@@ -3,7 +3,7 @@
 <div class="container">
 
     <p>Saved Recipes</p>
-    <div class="row">
+    <div class="row" *ngIf="recipeList">
         <div *ngFor="let recipe of recipeList.slice(0,4)" class="col-3">
             <a routerLink="/recipes/{{recipe.id}}">
                 <img [src]="recipe.imageUrl" class="img-fluid">
