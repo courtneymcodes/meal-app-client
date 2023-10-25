@@ -29,7 +29,7 @@ export class AuthService {
     return this.http.post('http://localhost:9095/auth/users/login/', credentials)
   }
 
-  registerUser(credentials:any){
-    return this.http.post('http://localhost:9095/auth/users/register/', credentials)
+  registerUser(user:any){
+    return this.http.post('http://localhost:9095/auth/users/register/', user)
   }
 }

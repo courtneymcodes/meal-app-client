@@ -1,1 +1,20 @@
 <p>account-home works!</p>
+
+<div class="container">
+
+    <p>Saved Recipes</p>
+    <div class="row">
+        <div *ngFor="let recipe of recipeList.slice(0,4)" class="col-3">
+            <a routerLink="/recipes/{{recipe.id}}">
+                <img [src]="recipe.imageUrl" class="img-fluid">
+                <p>{{recipe.name}}</p>
+            </a>
+        </div>
+    </div>
+    <button>View All</button>
+
+
+
+
+
+</div>
