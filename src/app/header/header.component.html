@@ -1,1 +1,13 @@
-<button (click)="signOut()">Sign Out</button>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a routerLink="" class="navbar-brand" href="#"><img src="/assets/meal-buddy-logo.png" alt="logo"></a>
+      
+      <div>
+        <div class="navbar-nav">
+            <a routerLink="/account-home" class="nav-link">Account Home</a>
+          <a routerLink="/generate" class="nav-link">Discover</a>
+          <a routerLink="/" (click)="signOut()" class="nav-link">Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
