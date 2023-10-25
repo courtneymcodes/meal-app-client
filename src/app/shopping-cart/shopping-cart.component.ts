@@ -17,8 +17,9 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private http: HttpClient, private cartService: CartService, private ingredientService: IngredientService) {}
 
   ngOnInit() {
+    //get cart
     this.cartService.getUserCart().subscribe((response:any) => {
-      console.log(response)
+      //console.log(response)
       this.cart = response
 
       //only create a cart if it doesn't exist yet
@@ -31,6 +32,7 @@ export class ShoppingCartComponent implements OnInit {
    
   }
 
+  
   addIngredient(ingredient:any){
     console.log(ingredient)
     this.ingredientService.addIngredient(ingredient).subscribe((response:any) => {
