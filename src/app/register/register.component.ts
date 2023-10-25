@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +16,18 @@ export class RegisterComponent {
     password: ""
   }
 
-  constructor(private http: HttpClient, private authServive: AuthService) {}
+  constructor(private http: HttpClient, private authServive: AuthService, private router: Router) {}
 
   onSubmit() {
-    console.log("Form data: ", this.user)
     this.authServive.registerUser(this.user).subscribe((response:any) =>{
       console.log(response)
+
+      if ( response != null) {  
+        this.router.navigate(['/login'])
+      } else {
+        // Todo: display error message 
+        console.log("login not successful")
+      }
     })
   }
 }
