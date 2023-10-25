@@ -1,12 +1,19 @@
 <p>recipes works!</p>
 
-<h2>Recipe favorites</h2>
+<div  class="text-center">
 
+<h2>Recipe favorites</h2>
 <button routerLink="/create-recipe">Add new recipe</button>
 
-<div *ngFor="let recipe of recipeList">
-    <a routerLink="/recipes/{{recipe.id}}">
-        <img [src]="recipe.imageUrl">
+
+<div class="row">
+    <div *ngFor="let recipe of recipeList" class="col-md-3">
+        <a routerLink="/recipes/{{recipe.id}}">
+        <img [src]="recipe.imageUrl" class="img-fluid">
         <p>{{recipe.name}}</p>
     </a>
+</div>
+
+</div>
+
 </div>
