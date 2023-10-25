@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -16,17 +16,17 @@ export class CreateRecipeComponent {
     sourceUrl: "",
   }
 
-  constructor(private recipeService: RecipeService) {}
-
-  onSubmit() {
-    console.log("Form data: ", this.recipe)
-  }
+  constructor(private recipeService: RecipeService, private router: Router) {}
 
   createRecipe(recipe:any){
-    this.recipeService.createRecipe(recipe).subscribe((response:any) => {
+     this.recipeService.createRecipe(recipe).subscribe((response:any) => {
       this.recipe = response.data
+
       console.log(this.recipe)
       console.log(response)
+      if(response) {
+        this.router.navigate(['/recipes'])
+      }
   })
 }
 }

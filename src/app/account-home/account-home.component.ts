@@ -14,7 +14,8 @@ recipeList: any
   ngOnInit():void {
     this.recipeService.getAllRecipes().subscribe((response:any) => {
       this.recipeList = response.data
-      //console.log(this.recipeList)
+      //console.log(response)
+      console.log(this.recipeList)
     })
   }
 }
