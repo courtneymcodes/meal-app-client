@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { CartService } from '../services/cart.service';
-import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-account-home',
@@ -10,32 +9,26 @@ import { DataService } from '../services/data.service';
 })
 export class AccountHomeComponent implements OnInit {
 recipeList: any
-cartObject:any
+cart:any
 
-  constructor(private recipeService: RecipeService, private cartService: CartService, private dataService: DataService) {
-    this.cartObject = this.dataService.getCartData();
-  }
+  constructor(private recipeService: RecipeService, private cartService: CartService) {}
 
   ngOnInit():void {
-    //get all user recipes
     this.recipeService.getAllRecipes().subscribe((response:any) => {
-      this.recipeList = response.data  //store data from response to recipeList
-      this.dataService.setRecipeListData(this.recipeList)  //update recipeList in data service
+      this.recipeList = response.data
       //console.log(response)
-      console.log(this.recipeList)
+      //console.log(this.recipeList)
     })
 
-    //get request to get user's cart
+    //get make request to get user's cart
     this.cartService.getUserCart().subscribe((response:any) => {
       //console.log(response)
-      this.cartObject = response
-      this.dataService.setCartData(this.cartObject)  //update cart in data service
+      this.cart = response
 
       //only create a cart if it doesn't exist yet
-      if(!this.cartObject){  
+      if(!this.cart){  
         this.cartService.createCart().subscribe((response:any) => {
           console.log(response)
-          
         })
       }
     })
