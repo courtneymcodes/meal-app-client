@@ -1,8 +1,8 @@
 <p>create-recipe works!</p>
 
-<h2>Add a new recipe</h2>
+<h2 class="text-center">Add a new recipe</h2>
 
-<form (ngSubmit)="createRecipe(recipe)">  <!-- listens for submit event and runs onSubmit method when form submitted -->
+<form (ngSubmit)="createRecipe(recipe)" class="mx-auto">  <!-- listens for submit event and runs onSubmit method when form submitted -->
     <div>
         <label for="name">Recipe name</label>
         <input [(ngModel)]="recipe.name" type="text" name="name" class="form-control">
