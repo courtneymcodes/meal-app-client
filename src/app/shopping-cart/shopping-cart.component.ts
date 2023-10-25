@@ -32,11 +32,20 @@ export class ShoppingCartComponent implements OnInit {
    
   }
 
+  updateCart() {
+    this.cartService.getUserCart().subscribe((response:any) => {
+      this.cart = response
+    })
+  }
+
   
   addIngredient(ingredient:any){
     console.log(ingredient)
     this.ingredientService.addIngredient(ingredient).subscribe((response:any) => {
       console.log(response)
+
+      //update cart after ingredient is added so that it displays on the page
+      this.updateCart()
     })
   }
 
