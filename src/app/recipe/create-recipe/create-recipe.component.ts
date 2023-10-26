@@ -25,7 +25,9 @@ export class CreateRecipeComponent {
       console.log(this.recipe)
       console.log(response)
       if(response) {
-        this.router.navigate(['/recipes'])
+        this.router.navigate(['/create-ingredient'])
+      } else {
+        console.log("Unable to add")  //display message
       }
   })
 }
