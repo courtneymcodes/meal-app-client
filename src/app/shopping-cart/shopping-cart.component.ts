@@ -49,5 +49,15 @@ export class ShoppingCartComponent implements OnInit {
     })
   }
 
+  deleteIngredient(ingredientId:string) {
+    this.ingredientService.deleteIngredient(ingredientId).subscribe((response:any) =>{
+      console.log(response)
+      console.log(ingredientId)
+
+      //update cart after deleting item so item no longer displays on page
+      this.updateCart()
+    })
+  }
+
   }
 

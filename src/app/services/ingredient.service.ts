@@ -6,9 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class IngredientService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, ) { }
 
   addIngredient(ingredient:any) {
     return this.http.post('http://localhost:9095/api/cart/1/ingredients/', ingredient)
+  }
+
+  deleteIngredient(ingredientId:string) {
+    return this.http.delete(`http://localhost:9095/api/cart/1/ingredients/${ingredientId}/`)
   }
 }

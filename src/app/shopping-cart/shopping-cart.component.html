@@ -15,7 +15,7 @@
   <div class="d-flex flex-column mt-4">
     <div class="d-flex align-items-start" *ngFor="let item of cart?.data.items">
       <p class="me-3">{{ item.name }}</p>
-      <img src="/assets/trash-icon.svg" />
+      <img (click)="deleteIngredient(item.id)" src="/assets/trash-icon.svg" /> <!-- when img is clicked, deleteIngredient is called and item.id from ngFor loop is passed in as an argument-->
     </div>
   </div>
 </div>
