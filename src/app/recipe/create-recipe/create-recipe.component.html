@@ -1,5 +1,3 @@
-<p>create-recipe works!</p>
-
 <h2 class="text-center">Add a new recipe</h2>
 
 <form (ngSubmit)="createRecipe(recipe)" class="mx-auto">  <!-- listens for submit event and runs onSubmit method when form submitted -->
@@ -10,7 +8,7 @@
 
     <div>
         <label for="instructions">Cooking instructions</label>
-        <input [(ngModel)]="recipe.instructions" type="text-box" name="instructionss" class="form-control">
+        <textarea [(ngModel)]="recipe.instructions" name="instructionss" class="form-control"></textarea>
     </div>
     
     <div>
