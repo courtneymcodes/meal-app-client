@@ -1,13 +1,11 @@
-<p>recipe-details works!</p>
-
-<div class="text-center">
+<div class="text-center mt-4">
     <div>
         <img [src]="shownRecipe?.data.imageUrl">
-        <p>{{shownRecipe?.data.name}}</p>
+        <h2 class="fw-bold">{{shownRecipe?.data.name}}</h2>
     </div>
     
     <div>
-        <p>Ingredients</p>
+        <p class="fw-bold">Ingredients</p>
         
         <div><!-- ngFor  -->
             <p>ingredient name</p>
