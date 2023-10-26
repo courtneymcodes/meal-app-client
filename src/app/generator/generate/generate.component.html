@@ -1,9 +1,16 @@
-<p>generate works!</p>
+<div>
+  <div class="text-center">
+    <p>Need some inspirations? Click generate to discover a new recipe</p>
+    <button (click)="getRandomRecipe()">Generate</button>
+  </div>
 
-<p>Need some inspirations? Click generate to discover a new recipe</p>
-<button (click)="getRandomRecipe()">Generate</button>
+  <app-show-recipe class="text-center mx-auto"
+  *ngIf="showRecipe"
+    [recipeImage]="recipeImage"
+    [recipeName]="recipeName"
+    [ingredientsNameList]="ingredientsNameList"
+    [instructions]="instructions"
+  ></app-show-recipe>
+</div>
 
-<app-show-recipe *ngIf="showRecipe"
-[recipeImage]="recipeImage"
-[recipeName]="recipeName"
-[ingredientsNameList]="ingredientsNameList"></app-show-recipe>
+

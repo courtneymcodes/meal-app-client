@@ -11,12 +11,14 @@ export class ShowRecipeComponent implements OnInit{
   @Input() recipeName: any
   @Input() ingredientsNameList: string[] = []
   @Input() ingredientsImageList: string[] =[]
+  @Input() instructions: any
 
   ngOnInit() {
     console.log(this.recipeImage)
     console.log(this.recipeName)
     console.log(this.ingredientsNameList)
     console.log(this.ingredientsImageList)
+    console.log(this.instructions)
   }
 
 }

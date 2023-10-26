@@ -1,7 +1,10 @@
-<p>show-recipe works!</p>
 
-<div>
+<div class="mt-5 mx-auto">
     <img [src]="recipeImage">
-    <p>{{recipeName}}</p>
-    <p *ngFor="let item of ingredientsNameList">{{item}}</p>
+    <h3 class="mt-2 mb-2">{{recipeName}}</h3>
+    <p class="fw-bold">Ingredients:</p>
+    <p class="m-0" *ngFor="let item of ingredientsNameList">{{item}}</p>
+    <p class="fw-bold mt-2">Instructions:</p>
+    <p [innerHTML]="instructions"></p>
+    <!-- Display instructions as innerHTML since the api has it in html format using <ol> <li> tags  -->
 </div>
