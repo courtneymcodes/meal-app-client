@@ -20,6 +20,7 @@ import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.compone
 import { GenerateComponent } from './generator/generate/generate.component';
 import { CreateRecipeComponent } from './recipe/create-recipe/create-recipe.component';
 import { HeaderComponent } from './header/header.component';
+import { CreateIngredientComponent } from './recipe/create-ingredient/create-ingredient.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { HeaderComponent } from './header/header.component';
     GenerateComponent,
     CreateRecipeComponent,
     HeaderComponent,
+    CreateIngredientComponent,
   ],
   imports: [
     BrowserModule,
