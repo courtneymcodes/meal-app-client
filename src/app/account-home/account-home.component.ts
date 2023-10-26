@@ -22,7 +22,7 @@ cart:any
 
     //get make request to get user's cart
     this.cartService.getUserCart().subscribe((response:any) => {
-      //console.log(response)
+      console.log(response)
       this.cart = response
 
       //only create a cart if it doesn't exist yet

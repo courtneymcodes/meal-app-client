@@ -1,7 +1,8 @@
 
 <div class="container">
 
-    <p class="fw-bold">Saved Recipes</p>
+    <h2 class="m-4 text-center">Welcome, {{cart?.data.user.name}}</h2>
+    <p class="fw-bold">Your favorites list</p>
     <div class="row mb-5" *ngIf="recipeList">
         <div *ngFor="let recipe of recipeList.slice(0,4)" class="col-3">
             <a routerLink="/recipes/{{recipe.id}}">
@@ -13,16 +14,17 @@
     </div>
     <hr>
 
-    <div>
+    <div class="text-center">
         <div class="d-flex flex-column">
-            <p class="fw-bold">Shopping list</p>
-            <ul *ngFor="let item of cart?.data.items">
-                <li>{{item.name}}</li>
-            </ul>
+            
+            <p class="fw-bold">Your shopping list</p>
+            <div class="d-flex align-items-start" *ngFor="let item of cart?.data.items">
+                <p>🍲{{item.name}}</p>
+            </div>
+            
             
                 
         </div>
-        <!-- <img src="https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3JvY2VyeSUyMHNob3BwcGluZ3xlbnwwfHwwfHx8MA%3D%3D"> -->
         <a routerLink="/shopping-cart"><button>Add items</button></a>
     </div>
     
