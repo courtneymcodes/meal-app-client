@@ -1,11 +1,21 @@
-<p>shopping-cart works!</p>
+<div
+  class="container d-flex flex-column justify-content-center align-items-center border"
+>
+  <div>
+    <h2 class="mb-4">Your Shopping List</h2>
+    <input
+      [(ngModel)]="ingredient.name"
+      type="text"
+      placeholder="add item to your list"
+    />
+    <button (click)="addIngredient(ingredient)">add</button>
+    <!-- bind input to component property -->
+  </div>
 
-<h2>Your Shopping List</h2>
-
-<input [(ngModel)]="ingredient.name" type="text" placeholder="add item to your grocery list">
-<button (click)="addIngredient(ingredient)">add</button> <!-- bind input to component property -->
-
-<div *ngFor="let item of cart?.data.items">
-    <p>{{item.name}}</p> 
-    <img src="/assets/trash-icon.svg">
+  <div class="d-flex flex-column mt-4">
+    <div class="d-flex align-items-start" *ngFor="let item of cart?.data.items">
+      <p class="me-3">{{ item.name }}</p>
+      <img src="/assets/trash-icon.svg" />
+    </div>
+  </div>
 </div>
