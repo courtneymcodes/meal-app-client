@@ -15,4 +15,8 @@ export class IngredientService {
   deleteIngredient(ingredientId:string) {
     return this.http.delete(`http://localhost:9095/api/cart/1/ingredients/${ingredientId}/`)
   }
+
+  addRecipeIngredient(ingredient:string, recipeId: string) {
+    return this.http.post(`http://localhost:9095/api/recipes/${recipeId}/ingredients/`, ingredient)
+  }
 }

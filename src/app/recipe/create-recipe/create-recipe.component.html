@@ -1,25 +1,77 @@
-<h2 class="text-center">Add a new recipe</h2>
+<!-- Form for adding a new recipe. It shows on the page until the recipe has been successfully created -->
+<div *ngIf="!showToggle">
+  <h2 class="text-center mb-4">Add a new recipe</h2>
 
-<form (ngSubmit)="createRecipe(recipe)" class="mx-auto">  <!-- listens for submit event and runs onSubmit method when form submitted -->
+  <form (ngSubmit)="createRecipe(recipe)" class="mx-auto">
+    <!-- listens for submit event and runs onSubmit method when form submitted -->
     <div>
-        <label for="name">Recipe name</label>
-        <input [(ngModel)]="recipe.name" type="text" name="name" class="form-control">
-    </div>
-
-    <div>
-        <label for="instructions">Cooking instructions</label>
-        <textarea [(ngModel)]="recipe.instructions" name="instructionss" class="form-control"></textarea>
-    </div>
-    
-    <div>
-        <label for="imageUrl">Image Url</label>
-        <input [(ngModel)]="recipe.imageUrl" type="text" name="imageUrl" class="form-control">
+      <label for="name">Recipe name</label>
+      <input
+        [(ngModel)]="recipe.name"
+        type="text"
+        name="name"
+        class="form-control"
+      />
     </div>
 
     <div>
-        <label for="sourceUrl">Recipe source link</label>
-        <input [(ngModel)]="recipe.sourceUrl" type="text" name="sourceUrl" class="form-control">
+      <label for="instructions">Cooking instructions</label>
+      <textarea
+        [(ngModel)]="recipe.instructions"
+        name="instructionss"
+        class="form-control"
+      ></textarea>
     </div>
-   
-    <input class="mt-2" type="submit" value="Next">
-</form>
+
+    <div>
+      <label for="imageUrl">Image Url</label>
+      <input
+        [(ngModel)]="recipe.imageUrl"
+        type="text"
+        name="imageUrl"
+        class="form-control"
+      />
+    </div>
+
+    <div>
+      <label for="sourceUrl">Recipe source link</label>
+      <input
+        [(ngModel)]="recipe.sourceUrl"
+        type="text"
+        name="sourceUrl"
+        class="form-control"
+      />
+    </div>
+
+    <input class="mt-2" type="submit" value="Next" />
+  </form>
+</div>
+
+
+<!-- Form for adding ingredients to the recipe. Only appears after a recipe is added succesfully-->
+<div *ngIf="showToggle"  class="mt-3">
+  <h2 class="text-center mb-4">Add recipe ingredients</h2>
+
+  <form (ngSubmit)="addIngredientToRecipe(ingredient)" class="mx-auto">
+    <!-- listens for submit event and runs onSubmit method when form submitted -->
+    <div>
+      <label for="name" class="fw-bold">Ingredient name</label>
+      <input
+        [(ngModel)]="ingredient.name"
+        type="text"
+        name="name"
+        class="form-control"
+      />
+    </div>
+
+    <input class="mt-2" type="submit" value="Add" />
+    <button routerLink="/recipes">Done</button>
+  </form>
+
+  <div class="border w-50 mx-auto mt-5">
+    <p class="text-center">Added ingredients:</p>
+    <div *ngFor="let ingredient of addedIngredientsArr" class="m-0">
+      <p class="text-center m-0">{{ ingredient }}</p>
+    </div>
+  </div>
+</div>

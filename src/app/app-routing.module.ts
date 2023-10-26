@@ -11,7 +11,6 @@ import { RecipeDetailsComponent } from './recipe/recipe-details/recipe-details.c
 import { ShowRecipeComponent } from './generator/show-recipe/show-recipe.component';
 import { GenerateComponent } from './generator/generate/generate.component';
 import { CreateRecipeComponent } from './recipe/create-recipe/create-recipe.component';
-import { CreateIngredientComponent } from './recipe/create-ingredient/create-ingredient.component';
 
 
 const routes: Routes = [
@@ -46,10 +45,6 @@ const routes: Routes = [
   {
     path: 'recipes/:id',
     component: RecipeDetailsComponent
-  },
-  {
-    path: 'create-ingredient',
-    component: CreateIngredientComponent
   },
   {
     path: 'generator',

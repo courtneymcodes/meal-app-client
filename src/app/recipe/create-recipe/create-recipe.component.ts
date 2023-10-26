@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { IngredientService } from 'src/app/services/ingredient.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class CreateRecipeComponent {
 
+  //data from add recipe form
   recipe = {
     name: "",
     instructions: "",
@@ -16,19 +18,41 @@ export class CreateRecipeComponent {
     sourceUrl: "",
   }
 
-  constructor(private recipeService: RecipeService, private router: Router) {}
+  createdRecipe: any  //response object containing recipe object with id
+
+  //data from add ingredient form
+  ingredient = {
+    name: ''
+  }
+
+  addedIngredientsArr: string[] = [] //array to track recipe ingredients added 
+
+  showToggle: boolean = false
+
+  constructor(private recipeService: RecipeService, private router: Router, private ingredientService: IngredientService) {}
 
   createRecipe(recipe:any){
      this.recipeService.createRecipe(recipe).subscribe((response:any) => {
-      this.recipe = response.data
+      this.createdRecipe = response.data
 
-      console.log(this.recipe)
-      console.log(response)
-      if(response) {
-        this.router.navigate(['/create-ingredient'])
-      } else {
-        console.log("Unable to add")  //display message
+      if (this.createdRecipe) {
+        this.showToggle = true
       }
+    
   })
 }
+
+
+addIngredientToRecipe(ingredient: any) {
+  console.log(this.createdRecipe.id)
+  this.ingredientService.addRecipeIngredient(ingredient, this.createdRecipe.id).subscribe((response: any) => {
+   console.log(response)
+   if (response) {
+    this.addedIngredientsArr.push(this.ingredient.name);
+    this.ingredient.name = ''
+   }
+  })
+
+
+  }
 }
