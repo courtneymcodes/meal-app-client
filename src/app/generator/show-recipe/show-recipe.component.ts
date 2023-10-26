@@ -6,19 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./show-recipe.component.scss']
 })
 export class ShowRecipeComponent implements OnInit{
-  @Input() data: any
-  @Input() recipeImage: any
-  @Input() recipeName: any
-  @Input() ingredientsNameList: string[] = []
-  @Input() ingredientsImageList: string[] =[]
-  @Input() instructions: any
+  @Input() recipe: any
 
   ngOnInit() {
-    console.log(this.recipeImage)
-    console.log(this.recipeName)
-    console.log(this.ingredientsNameList)
-    console.log(this.ingredientsImageList)
-    console.log(this.instructions)
+    console.log(this.recipe)
   }
 
 }
