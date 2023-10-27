@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -11,9 +11,15 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class RecipesComponent implements OnInit {
   recipeList: any
 
-  constructor(private http: HttpClient, private recipeService: RecipeService, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient, private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+
+    //navigate to landing page if user not logged in
+    if (localStorage.getItem('jwt') == null){
+      this.router.navigate([''])
+    }
+
     this.recipeService.getAllRecipes()
     .subscribe((response:any) => {
       this.recipeList = response.data

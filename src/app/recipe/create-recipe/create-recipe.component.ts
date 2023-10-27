@@ -28,6 +28,7 @@ export class CreateRecipeComponent {
   addedIngredientsArr: string[] = [] //array to track recipe ingredients added 
 
   showToggle: boolean = false
+  showError: boolean = false
 
   constructor(private recipeService: RecipeService, private router: Router, private ingredientService: IngredientService) {}
 
@@ -37,6 +38,8 @@ export class CreateRecipeComponent {
 
       if (this.createdRecipe) {
         this.showToggle = true
+      } else {
+        console.log("fail")
       }
   })
 }

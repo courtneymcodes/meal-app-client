@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-home',
@@ -11,9 +12,14 @@ export class AccountHomeComponent implements OnInit {
 recipeList: any
 cart:any
 
-  constructor(private recipeService: RecipeService, private cartService: CartService) {}
+  constructor(private recipeService: RecipeService, private cartService: CartService, private router: Router) {}
 
   ngOnInit():void {
+
+    if (localStorage.getItem('jwt') == null){
+      this.router.navigate([''])
+    }
+
     this.recipeService.getAllRecipes().subscribe((response:any) => {
       this.recipeList = response.data
       //console.log(response)

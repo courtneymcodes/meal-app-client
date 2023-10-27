@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IngredientService } from 'src/app/services/ingredient.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
@@ -12,7 +13,13 @@ export class RecipeDetailsComponent implements OnInit{
  shownRecipe:any
 
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService){}
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private ingredientService: IngredientService){}
+
+  addItemToCart() {
+    this.ingredientService.addIngredient(this.shownRecipe).subscribe((response) => {
+      console.log(response)
+    })
+  }
 
   ngOnInit(){
     //store the id of the clicked on recipe
@@ -25,7 +32,6 @@ export class RecipeDetailsComponent implements OnInit{
         this.shownRecipe = response
         //console.log(this.shownRecipe)
       })
-
     })
   }
 

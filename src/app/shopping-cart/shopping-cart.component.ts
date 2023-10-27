@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CartService } from '../services/cart.service';
 import { IngredientService } from '../services/ingredient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,9 +15,15 @@ export class ShoppingCartComponent implements OnInit {
     name: ''
   }
 
-  constructor(private http: HttpClient, private cartService: CartService, private ingredientService: IngredientService) {}
+  constructor(private http: HttpClient, private cartService: CartService, private ingredientService: IngredientService, private router: Router) {}
 
   ngOnInit() {
+
+    //navigate to landing page if user not logged in
+    if (localStorage.getItem('jwt') == null){
+      this.router.navigate([''])
+    }
+
     //get cart
     this.cartService.getUserCart().subscribe((response:any) => {
       //console.log(response)

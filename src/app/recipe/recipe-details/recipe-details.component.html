@@ -7,7 +7,7 @@
     <p class="fw-bold mb-2">Ingredients:</p>
     <div *ngFor="let item of shownRecipe?.data.ingredients" class="d-flex">
       <p class="mt-0 mb-0">{{ item.name }}</p>
-      <img class="custom-heart " src="/assets/heart.png">
+      <img class="custom-heart " src="/assets/heart.png" (click)="addItemToCart()" >
     </div>
     <p class="fw-bold mt-3 mb-2">Instructions:</p>
     <p>{{ shownRecipe?.data.instructions }}</p>
