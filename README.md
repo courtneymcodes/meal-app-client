@@ -1,5 +1,7 @@
 # Meal Buddy App Client
 
+![logo](/src/assets/meal-buddy-logo.png)
+
 Meal Buddy is a virtual kitchen assistant that helps you manage your recipes and grocery list. This repository is the client side of a full stack application that connects with the [Meal Buddy server](https://github.com/courtneymcodes/meal-app-server). 
 
 ## Tools and Technologies
