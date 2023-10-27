@@ -1,3 +1,13 @@
-img {
-    width: 60%;
+.custom-recipe-img {
+    max-width: 60%;
+    max-height:60%;
+}
+
+.custom-heart {
+    width: 25px;
+    opacity: 25%;
+}
+
+.custom-heart:hover {
+    opacity: 100%;
 }
