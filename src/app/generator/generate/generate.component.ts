@@ -35,8 +35,8 @@ export class GenerateComponent{
         this.recipe.ingredients.push(ingredient.name) //create an array of igredient names from response
         this.ingredientsImageList.push("https://spoonacular.com/cdn/ingredients_100x100/" + ingredient.image) //create an array of ingredient image urls
       } 
-      console.log(this.data)
-      console.log(this.ingredientsNameList)
+      //console.log(this.data)
+      //console.log(this.ingredientsNameList)
       // console.log(this.ingredientsImageList)
       // console.log(this.recipe.imageUrl)
       // console.log(this.recipe.name)

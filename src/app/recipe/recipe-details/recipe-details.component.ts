@@ -23,7 +23,7 @@ export class RecipeDetailsComponent implements OnInit{
       //find recipe by its id by making a get request via recipeService
       this.recipeService.getRecipeById(this.recipeId).subscribe((response) => {
         this.shownRecipe = response
-        console.log(this.shownRecipe)
+        //console.log(this.shownRecipe)
       })
 
     })

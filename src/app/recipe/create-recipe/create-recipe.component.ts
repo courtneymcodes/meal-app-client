@@ -38,7 +38,6 @@ export class CreateRecipeComponent {
       if (this.createdRecipe) {
         this.showToggle = true
       }
-    
   })
 }
 
