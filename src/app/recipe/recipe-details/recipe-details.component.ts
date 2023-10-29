@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { IngredientService } from 'src/app/services/ingredient.service';
 import { RecipeService } from 'src/app/services/recipe.service';
 
@@ -12,11 +13,24 @@ export class RecipeDetailsComponent implements OnInit{
  recipeId: string | null = ''
  shownRecipe:any
 
+ ingredientToAddToList = {
+  id: '',
+  name: ''
+ }
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private ingredientService: IngredientService){}
+ cart: any
 
-  addItemToCart() {
-    this.ingredientService.addIngredient(this.shownRecipe).subscribe((response) => {
+
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private ingredientService: IngredientService, private cartService: CartService){}
+
+  // add ingredient to cart when clicked
+  addItemToCart(item:any) {
+    this.ingredientToAddToList.name = item.name
+    this.ingredientToAddToList.id = item.id
+    console.log(this.ingredientToAddToList)
+
+    //make a post request to add ingredient from recipe to shopping list, passing in ingredient object and cart id
+    this.ingredientService.addIngredient(item, this.cart?.data.id).subscribe((response) => {
       console.log(response)
     })
   }
@@ -32,6 +46,13 @@ export class RecipeDetailsComponent implements OnInit{
         this.shownRecipe = response
         //console.log(this.shownRecipe)
       })
+    })
+
+
+    //make a requst to get and store cart (to get cart id needed for addItemToCart() method)
+
+    this.cartService.getUserCart().subscribe((response) => {
+      this.cart = response
     })
   }
 

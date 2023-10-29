@@ -12,7 +12,9 @@ export class AuthService {
     this.http
     .post('http://localhost:9095/auth/users/login/', credentials)
     .subscribe((response:any) => {
+      console.log(response)
       return response 
+    
     })
   }
 

@@ -8,12 +8,18 @@ export class IngredientService {
 
   constructor(private http: HttpClient, ) { }
 
-  addIngredient(ingredient:any) {
-    return this.http.post('http://localhost:9095/api/cart/1/ingredients/', ingredient)
+  //add ingredient to cart. Takes 2 parameters: ingredient object being added and the cart id of cart it is being added to
+  addIngredient(ingredient:any, cartId: string) {
+    return this.http.post(`http://localhost:9095/api/cart/${cartId}/ingredients/`, ingredient)
+  }
+  
+  //remove ingredient from cart
+  deleteIngredient(ingredientId:string, cartId: string) {
+    return this.http.delete(`http://localhost:9095/api/cart/${cartId}/ingredients/${ingredientId}/`)
   }
 
-  deleteIngredient(ingredientId:string) {
-    return this.http.delete(`http://localhost:9095/api/cart/1/ingredients/${ingredientId}/`)
+  getAllCartIngredients(cartId: string) {
+    return this.http.get(`http://localhost:9095/api/cart/${cartId}/`)
   }
 
   addRecipeIngredient(ingredient:string, recipeId: string) {

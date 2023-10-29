@@ -12,10 +12,12 @@
     <!-- bind input to component property -->
   </div>
 
-  <div class="d-flex flex-column mt-4">
-    <div class="d-flex align-items-start" *ngFor="let item of cart?.data.items">
+  <!-- only show if user has items in cart -->
+  <div *ngIf="addedIngredientsArr" class="d-flex flex-column mt-4">
+    <div class="d-flex align-items-start" *ngFor="let item of addedIngredientsArr">
       <p class="me-3">{{ item.name }}</p>
-      <img (click)="deleteIngredient(item.id)" src="/assets/trash-icon.svg" /> <!-- when img is clicked, deleteIngredient is called and item.id from ngFor loop is passed in as an argument-->
+    <img (click)="deleteIngredient(item.id, this.cart.id)" src="/assets/trash-icon.svg" /> <!-- when img is clicked, deleteIngredient is called and item.id from ngFor loop is passed in as an argument -->
+    
     </div>
   </div>
 </div>
